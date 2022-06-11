@@ -5,15 +5,33 @@ import { AppContext } from '../context/AppContext';
 const ExpenseItem = (props) => {
 	const { dispatch } = useContext(AppContext);
 	// const { dispatch } = useContext(AppContext);
-	// const { dispatch } = useContext(AppContext);
-	// const { dispatch } = useContext(AppContext);
 
 	const handleDeleteExpense = () => {
+
+		var requestOptions = {
+			method: 'DELETE',
+			redirect: 'follow'
+		  };
+		  
+		  fetch(`http://127.0.0.1:3001/deleteThis/${props.id}`, requestOptions)
+			.then(response => response.text())
+			.then(result => console.log(result))
+			.catch(error => console.log('error', error));
+
+
 		dispatch({
 			type: 'DELETE_EXPENSE',
 			payload: props.id,
 		});
 	};
+
+	// const getD = async () => {
+	// 	await getData()
+	// 	// await setTime()
+	// }
+	// useEffect(() => {
+	// 	getD()
+	// }, [])
 
 	return (
 		<li className='list-group-item d-flex justify-content-between align-items-center'>
