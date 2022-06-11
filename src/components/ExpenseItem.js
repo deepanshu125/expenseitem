@@ -4,6 +4,9 @@ import { AppContext } from '../context/AppContext';
 
 const ExpenseItem = (props) => {
 	const { dispatch } = useContext(AppContext);
+	// const { dispatch } = useContext(AppContext);
+	// const { dispatch } = useContext(AppContext);
+	// const { dispatch } = useContext(AppContext);
 
 	const handleDeleteExpense = () => {
 		dispatch({
@@ -17,7 +20,7 @@ const ExpenseItem = (props) => {
 			{props.name}
 			<div>
 				<span className='badge badge-primary badge-pill mr-3 ' style={{color: "red"}}>
-                ₹{props.cost} 
+					₹{props.cost} 
 				</span>
 				<TiDelete size='1.5em' onClick={handleDeleteExpense}></TiDelete>
 			</div>
